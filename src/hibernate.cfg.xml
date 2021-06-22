@@ -39,8 +39,11 @@
         <property name="hibernate.generate_statistics">false</property>
 
         <!-- Full names the annotated entity class -->
-        <mapping class="mt.mas.hibernate.Movie"/>
-        <mapping class="mt.mas.hibernate.Actor"/>
+        <mapping class="models.Instructor"/>
+        <mapping class="models.Person"/>
+        <mapping class="models.Trainee"/>
+        <mapping class="models.InstructorTypeClass"/>
+
 
     </session-factory>
 
