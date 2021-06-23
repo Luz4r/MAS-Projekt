@@ -1,4 +1,4 @@
-package models;
+package model;
 
 import org.hibernate.annotations.GenericGenerator;
 
@@ -81,14 +81,17 @@ public abstract class Exam {
 	}
 	
 	public void addInstructor(Instructor instructor){
-		this.instructor = instructor;
-		instructor.addExam(this);
+		if(this.instructor != instructor) {
+			removeInstructor(this.instructor); //TODO do this on every 1-* association
+			this.instructor = instructor;
+			instructor.addExam(this);
+		}
 	}
 	
 	public void removeInstructor(Instructor instructor){
 		if(this.instructor != null){
-			this.instructor.removeExam(this);
 			this.instructor = null;
+			instructor.removeExam(this);
 		}
 	}
 }

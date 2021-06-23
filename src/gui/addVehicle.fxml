@@ -10,15 +10,14 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.VehicleController">
    <children>
       <VBox layoutX="200.0" layoutY="150.0" prefHeight="300.0" prefWidth="400.0">
          <children>
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
                   <Label text="Marka" />
-                  <TextField>
+                  <TextField fx:id="brandInput">
                      <HBox.margin>
                         <Insets left="80.0" />
                      </HBox.margin>
@@ -31,7 +30,7 @@
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
                   <Label text="Rejestracja" />
-                  <TextField prefWidth="200.0">
+                  <TextField fx:id="registrationInput">
                      <HBox.margin>
                         <Insets left="80.0" />
                      </HBox.margin>
@@ -41,7 +40,7 @@
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
                   <Label text="Rok produkcji" />
-                  <DatePicker>
+                  <DatePicker fx:id="productionInput">
                      <HBox.margin>
                         <Insets left="80.0" />
                      </HBox.margin>
@@ -50,8 +49,11 @@
             </HBox>
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Label text="Data następnego przeglądu" />
-                  <DatePicker>
+                  <Label text="Data następnego przeglądu">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin></Label>
+                  <DatePicker fx:id="nextInspectionInput">
                      <HBox.margin>
                         <Insets left="80.0" />
                      </HBox.margin>
@@ -65,7 +67,7 @@
             <Font size="30.0" />
          </font>
       </Label>
-      <Button layoutX="160.0" layoutY="507.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" text="Anuluj" />
-      <Button layoutX="560.0" layoutY="507.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" text="Zatwierdź" />
+      <Button fx:id="cancelButton" layoutX="160.0" layoutY="507.0" mnemonicParsing="false" onAction="#onCancel" prefHeight="30.0" prefWidth="80.0" text="Anuluj" />
+      <Button fx:id="approveButton" layoutX="560.0" layoutY="507.0" mnemonicParsing="false" onAction="#onApprove" prefHeight="30.0" prefWidth="80.0" text="Zatwierdź" />
    </children>
 </AnchorPane>

@@ -33,25 +33,25 @@
         <property name="show_sql">true</property>
 
          <!--Drop and re-create the database schema on startup-->
-        <property name="hbm2ddl.auto">create</property>
+<!--        <property name="hbm2ddl.auto">create</property>-->
 
         <!-- Enable Hibernate stats in the logs -->
         <property name="hibernate.generate_statistics">false</property>
 
         <!-- Full names the annotated entity class -->
-        <mapping class="models.Instructor"/>
-        <mapping class="models.Person"/>
-        <mapping class="models.Trainee"/>
-        <mapping class="models.InstructorTypeClass"/>
-        <mapping class="models.TrainingTrip"/>
-        <mapping class="models.Exam"/>
-        <mapping class="models.ExamResult"/>
-        <mapping class="models.TheoreticalExam"/>
-        <mapping class="models.PracticalExam"/>
-        <mapping class="models.Vehicle"/>
-        <mapping class="models.Inspection"/>
-        <mapping class="models.InstructorVehicle"/>
-        <mapping class="models.Payment"/>
+        <mapping class="model.Instructor"/>
+        <mapping class="model.Person"/>
+        <mapping class="model.Trainee"/>
+        <mapping class="model.InstructorTypeClass"/>
+        <mapping class="model.TrainingTrip"/>
+        <mapping class="model.Exam"/>
+        <mapping class="model.ExamResult"/>
+        <mapping class="model.TheoreticalExam"/>
+        <mapping class="model.PracticalExam"/>
+        <mapping class="model.Vehicle"/>
+        <mapping class="model.Inspection"/>
+        <mapping class="model.InstructorVehicle"/>
+        <mapping class="model.Payment"/>
 
     </session-factory>
 

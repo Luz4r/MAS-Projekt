@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+
+
+<HBox fx:id="hbox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" spacing="50.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label fx:id="nameLabel" text="Imie i Nazwisko" />
+      <Label fx:id="phoneLabel" text="nr tel" />
+      <Label fx:id="emailLabel" text="e-mail" />
+      <Label fx:id="birthDateLabel" text="data urodzenia" />
+      <Label fx:id="workingHoursLabel" text="godziny pracy" />
+      <Label fx:id="salaryLabel" text="pensja" />
+   </children>
+</HBox>

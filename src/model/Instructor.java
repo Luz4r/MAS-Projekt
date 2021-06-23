@@ -1,4 +1,4 @@
-package models;
+package model;
 
 
 import javax.persistence.*;
@@ -129,5 +129,10 @@ public class Instructor extends Person {
 			getExams().remove(exam);
 			exam.removeInstructor(this);
 		}
+	}
+	
+	@Override
+	public String toString() {
+		return getFirstName() + " " + getLastName();
 	}
 }

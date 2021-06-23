@@ -1,7 +1,6 @@
-package models;
+package model;
 
 import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.annotations.ManyToAny;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -104,6 +103,7 @@ public class Vehicle {
 	public void addInstructor(InstructorVehicle instructorVehicle){
 		if(!getInstructors().contains(instructorVehicle)) {
 			getInstructors().add(instructorVehicle);
+			setState(VehicleState.Waiting);
 			instructorVehicle.addVehicle(this);
 		}
 	}
@@ -111,6 +111,9 @@ public class Vehicle {
 	public void removeInstructor(InstructorVehicle instructorVehicle){
 		if(getInstructors().contains(instructorVehicle)){
 			getInstructors().remove(instructorVehicle);
+			if(getInstructors().isEmpty()){
+				setState(VehicleState.NotAssigned);
+			}
 			instructorVehicle.removeVehicle(this);
 		}
 	}
@@ -136,6 +139,11 @@ public class Vehicle {
 			getInspections().remove(inspection);
 			inspection.removeVehicle(this);
 		}
+	}
+	
+	@Override
+	public String toString() {
+		return getBrand() + " (" + getRegistration() + ") " + "[nr " + getId() + "]";
 	}
 }
 

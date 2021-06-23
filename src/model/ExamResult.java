@@ -1,4 +1,4 @@
-package models;
+package model;
 
 import org.hibernate.annotations.GenericGenerator;
 
@@ -43,7 +43,7 @@ public class ExamResult {
 	
 	@Transient
 	public boolean isPassed(){
-		return score >= Exam.maxScore; //TODO change to associatet exam
+		return score >= Exam.maxScore;
 	}
 	
 	@ManyToOne
