@@ -43,6 +43,17 @@
         <mapping class="models.Person"/>
         <mapping class="models.Trainee"/>
         <mapping class="models.InstructorTypeClass"/>
+        <mapping class="models.TrainingTrip"/>
+        <mapping class="models.Exam"/>
+        <mapping class="models.ExamResult"/>
+        <mapping class="models.TheoreticalExam"/>
+        <mapping class="models.PracticalExam"/>
+        <mapping class="models.Vehicle"/>
+        <mapping class="models.Inspection"/>
+        <mapping class="models.InstructorVehicle"/>
+
+
+
 
 
     </session-factory>

@@ -5,6 +5,8 @@ import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.*;
 import java.time.LocalDate;
 
+enum VehicleState{NotAssigned, Waiting, OnTrip, OnInspection}
+
 @Entity(name = "Vehicle")
 public class Vehicle {
 	
@@ -14,6 +16,7 @@ public class Vehicle {
 	private String registration;
 	private LocalDate production;
 	private LocalDate nextInspection;
+	private VehicleState state;
 	
 	public Vehicle(){}
 	public Vehicle(String brand, String registration, LocalDate production, LocalDate nextInspection){
@@ -21,6 +24,7 @@ public class Vehicle {
 		this.registration = registration;
 		this.production = production;
 		this.nextInspection = nextInspection;
+		state = VehicleState.NotAssigned;
 	}
 	
 	@Id
@@ -70,4 +74,14 @@ public class Vehicle {
 	public void setNextInspection(LocalDate nextInspection) {
 		this.nextInspection = nextInspection;
 	}
+	
+	@Enumerated(EnumType.STRING)
+	public VehicleState getState() {
+		return state;
+	}
+	
+	public void setState(VehicleState state) {
+		this.state = state;
+	}
 }
+

@@ -8,7 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.time.LocalDate;
 
-@Entity
+@Entity(name = "Inspection")
 public class Inspection {
 	
 	private long id;
