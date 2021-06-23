@@ -1,3 +1,9 @@
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
 import models.Instructor;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -11,7 +17,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 
-public class Main {
+public class Main extends Application {
 	public static void main(String[] args) {
 		StandardServiceRegistry registry = null;
 		SessionFactory sessionFactory = null;
@@ -64,6 +70,20 @@ public class Main {
 				sessionFactory.close();
 				sessionFactory = null;
 			}
+		}
+		
+		launch(args);
+	}
+	
+	@Override
+	public void start(Stage primaryStage) throws Exception {
+		try{
+			Parent root = FXMLLoader.load(getClass().getResource("GUI/scene.fxml"));
+			primaryStage.setScene(new Scene(root, 800, 600));
+			primaryStage.setTitle("Dodaj pojazd");
+			primaryStage.show();
+		} catch(Exception e) {
+			e.printStackTrace();
 		}
 	}
 }

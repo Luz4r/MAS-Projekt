@@ -58,6 +58,20 @@ public class Trainee extends Person {
 		this.trips = trips;
 	}
 	
+	public void addTrip(TrainingTrip trip){
+		if(!getTrips().contains(trip)) {
+			getTrips().add(trip);
+			trip.addTrainee(this);
+		}
+	}
+	
+	public void removeTrip(TrainingTrip trip){
+		if(getTrips().contains(trip)) {
+			getTrips().remove(trip);
+			trip.removeTrainee(this);
+		}
+	}
+	
 	@OneToMany
 	public List<Payment> getPayments() {
 		return payments;
@@ -67,6 +81,20 @@ public class Trainee extends Person {
 		this.payments = payments;
 	}
 	
+	public void addPayment(Payment payment){
+		if(!getPayments().contains(payment)) {
+			getPayments().add(payment);
+			payment.addTrainee(this);
+		}
+	}
+	
+	public void removePayment(Payment payment){
+		if(getPayments().contains(payment)) {
+			getPayments().remove(payment);
+			payment.removeTrainee(this);
+		}
+	}
+	
 	@OneToMany
 	public List<ExamResult> getResults() {
 		return results;
@@ -74,5 +102,19 @@ public class Trainee extends Person {
 	
 	public void setResults(List<ExamResult> results) {
 		this.results = results;
+	}
+	
+	public void addResult(ExamResult result){
+		if(!getResults().contains(result)){
+			getResults().add(result);
+			result.addTrainee(this);
+		}
+	}
+	
+	public void removeResult(ExamResult result){
+		if(getResults().contains(result)){
+			getResults().remove(result);
+			result.removeTrainee(this);
+		}
 	}
 }

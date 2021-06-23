@@ -55,6 +55,18 @@ public class ExamResult {
 		this.exam = exam;
 	}
 	
+	public void addExam(Exam exam){
+		this.exam = exam;
+		exam.addResult(this);
+	}
+	
+	public void removeExam(Exam exam){
+		if(this.exam != null){
+			this.exam = null;
+			exam.removeResults(this);
+		}
+	}
+	
 	@ManyToOne
 	public Trainee getTrainee() {
 		return trainee;
@@ -62,5 +74,17 @@ public class ExamResult {
 	
 	public void setTrainee(Trainee trainee) {
 		this.trainee = trainee;
+	}
+	
+	public void removeTrainee(Trainee trainee){
+		if(this.trainee != null) {
+			this.trainee = null;
+			trainee.removeResult(this);
+		}
+	}
+	
+	public void addTrainee(Trainee trainee){
+		this.trainee = trainee;
+		trainee.addResult(this);
 	}
 }

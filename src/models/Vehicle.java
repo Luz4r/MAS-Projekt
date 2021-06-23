@@ -104,6 +104,14 @@ public class Vehicle {
 	public void addInstructor(InstructorVehicle instructorVehicle){
 		if(!getInstructors().contains(instructorVehicle)) {
 			getInstructors().add(instructorVehicle);
+			instructorVehicle.addVehicle(this);
+		}
+	}
+	
+	public void removeInstructor(InstructorVehicle instructorVehicle){
+		if(getInstructors().contains(instructorVehicle)){
+			getInstructors().remove(instructorVehicle);
+			instructorVehicle.removeVehicle(this);
 		}
 	}
 	
@@ -114,6 +122,20 @@ public class Vehicle {
 	
 	public void setInspections(List<Inspection> inspections) {
 		this.inspections = inspections;
+	}
+	
+	public void addInspection(Inspection inspection){
+		if(!getInspections().contains(inspection)){
+			getInspections().add(inspection);
+			inspection.addVehicle(this);
+		}
+	}
+	
+	public void removeInspection(Inspection inspection){
+		if(getInspections().contains(inspection)){
+			getInspections().remove(inspection);
+			inspection.removeVehicle(this);
+		}
 	}
 }
 

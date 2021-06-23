@@ -74,6 +74,14 @@ public class Instructor extends Person {
 	public void addVehicle(InstructorVehicle instructorVehicle){
 		if(!getVehicles().contains(instructorVehicle)) {
 			getVehicles().add(instructorVehicle);
+			instructorVehicle.addInstructor(this);
+		}
+	}
+	
+	public void removeVehicle(InstructorVehicle instructorVehicle){
+		if(getVehicles().contains(instructorVehicle)){
+			getVehicles().remove(instructorVehicle);
+			instructorVehicle.removeInstructor(this);
 		}
 	}
 	
@@ -86,6 +94,20 @@ public class Instructor extends Person {
 		this.trips = trips;
 	}
 	
+	public void addTrip(TrainingTrip trip){
+		if(!getTrips().contains(trip)){
+			getTrips().add(trip);
+			trip.addInstructor(this);
+		}
+	}
+	
+	public void removeTrip(TrainingTrip trip){
+		if(getTrips().contains(trip)){
+			getTrips().remove(trip);
+			trip.removeInstructor(this);
+		}
+	}
+	
 	@OneToMany
 	public List<Exam> getExams() {
 		return exams;
@@ -93,5 +115,19 @@ public class Instructor extends Person {
 	
 	public void setExams(List<Exam> exams) {
 		this.exams = exams;
+	}
+	
+	public void addExam(Exam exam){
+		if(!getExams().contains(exam)){
+			getExams().add(exam);
+			exam.addInstructor(this);
+		}
+	}
+	
+	public void removeExam(Exam exam){
+		if(getExams().contains(exam)){
+			getExams().remove(exam);
+			exam.removeInstructor(this);
+		}
 	}
 }

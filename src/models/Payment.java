@@ -1,5 +1,6 @@
 package models;
 
+import com.sun.istack.NotNull;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -59,5 +60,17 @@ public class Payment {
 	
 	public void setTrainee(Trainee trainee) {
 		this.trainee = trainee;
+	}
+	
+	public void removeTrainee(Trainee trainee){
+		if(this.trainee != null) {
+			this.trainee = null;
+			trainee.removePayment(this);
+		}
+	}
+	
+	public void addTrainee(Trainee trainee){
+		this.trainee = trainee;
+		trainee.addPayment(this);
 	}
 }

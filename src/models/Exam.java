@@ -57,6 +57,20 @@ public abstract class Exam {
 		this.results = results;
 	}
 	
+	public void addResult(ExamResult result){
+		if(!getResults().contains(result)){
+			getResults().add(result);
+			result.addExam(this);
+		}
+	}
+	
+	public void removeResults(ExamResult result){
+		if(getResults().contains(result)){
+			getResults().remove(result);
+			result.removeExam(this);
+		}
+	}
+	
 	@ManyToOne
 	public Instructor getInstructor() {
 		return instructor;
@@ -64,5 +78,17 @@ public abstract class Exam {
 	
 	public void setInstructor(Instructor instructor) {
 		this.instructor = instructor;
+	}
+	
+	public void addInstructor(Instructor instructor){
+		this.instructor = instructor;
+		instructor.addExam(this);
+	}
+	
+	public void removeInstructor(Instructor instructor){
+		if(this.instructor != null){
+			this.instructor.removeExam(this);
+			this.instructor = null;
+		}
 	}
 }

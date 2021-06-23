@@ -60,4 +60,16 @@ public class Inspection {
 	public void setVehicle(Vehicle vehicle) {
 		this.vehicle = vehicle;
 	}
+	
+	public void addVehicle(Vehicle vehicle){
+		this.vehicle = vehicle;
+		vehicle.addInspection(this);
+	}
+	
+	public void removeVehicle(Vehicle vehicle){
+		if(this.vehicle != null){
+			this.vehicle = null;
+			vehicle.removeInspection(this);
+		}
+	}
 }

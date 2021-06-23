@@ -61,6 +61,18 @@ public class InstructorVehicle {
 		this.instructor = instructor;
 	}
 	
+	public void addInstructor(Instructor instructor){
+		this.instructor = instructor;
+		instructor.addVehicle(this);
+	}
+	
+	public void removeInstructor(Instructor instructor){
+		if(this.instructor != null) {
+			this.instructor = null;
+			instructor.removeVehicle(this);
+		}
+	}
+	
 	@ManyToOne
 	public Vehicle getVehicle() {
 		return vehicle;
@@ -68,5 +80,17 @@ public class InstructorVehicle {
 	
 	public void setVehicle(Vehicle vehicle) {
 		this.vehicle = vehicle;
+	}
+	
+	public void addVehicle(Vehicle vehicle){
+		this.vehicle = vehicle;
+		vehicle.addInstructor(this);
+	}
+	
+	public void removeVehicle(Vehicle vehicle){
+		if(this.vehicle != null){
+			this.vehicle = null;
+			vehicle.removeInstructor(this);
+		}
 	}
 }
