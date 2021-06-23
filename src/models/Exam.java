@@ -4,15 +4,23 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
-@MappedSuperclass
+@Entity(name = "Exam")
+@Inheritance(strategy=InheritanceType.JOINED)
 public abstract class Exam {
 	
 	private long id;
 	
+	//Attributes
 	private LocalDateTime date;
 	
-	@Basic
+	//Associations
+	private List<ExamResult> results = new ArrayList<>();
+	private Instructor instructor;
+	
+	//TODO static attribute
 	public static int maxScore;
 	
 	public Exam(){}
@@ -38,5 +46,23 @@ public abstract class Exam {
 	
 	public void setDate(LocalDateTime date) {
 		this.date = date;
+	}
+	
+	@OneToMany
+	public List<ExamResult> getResults() {
+		return results;
+	}
+	
+	public void setResults(List<ExamResult> results) {
+		this.results = results;
+	}
+	
+	@ManyToOne
+	public Instructor getInstructor() {
+		return instructor;
+	}
+	
+	public void setInstructor(Instructor instructor) {
+		this.instructor = instructor;
 	}
 }

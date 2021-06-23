@@ -2,10 +2,7 @@ package models;
 
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.Basic;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity(name = "Payment")
@@ -13,8 +10,12 @@ public class Payment {
 	
 	private long id;
 	
+	//Attributes
 	private double amount;
 	private LocalDate period;
+	
+	//Associations
+	private Trainee trainee;
 	
 	public Payment(){}
 	public Payment(double amount, LocalDate period){
@@ -49,5 +50,14 @@ public class Payment {
 	
 	public void setPeriod(LocalDate period) {
 		this.period = period;
+	}
+	
+	@ManyToOne
+	public Trainee getTrainee() {
+		return trainee;
+	}
+	
+	public void setTrainee(Trainee trainee) {
+		this.trainee = trainee;
 	}
 }

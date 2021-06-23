@@ -9,7 +9,12 @@ public class ExamResult {
 	
 	private long id;
 	
+	//Attributes
 	private int score;
+	
+	//Associations
+	private Exam exam;
+	private Trainee trainee;
 	
 	public ExamResult(){}
 	public ExamResult(int score){
@@ -39,5 +44,23 @@ public class ExamResult {
 	@Transient
 	public boolean isPassed(){
 		return score >= Exam.maxScore; //TODO change to associatet exam
+	}
+	
+	@ManyToOne
+	public Exam getExam() {
+		return exam;
+	}
+	
+	public void setExam(Exam exam) {
+		this.exam = exam;
+	}
+	
+	@ManyToOne
+	public Trainee getTrainee() {
+		return trainee;
+	}
+	
+	public void setTrainee(Trainee trainee) {
+		this.trainee = trainee;
 	}
 }

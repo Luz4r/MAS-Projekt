@@ -2,10 +2,7 @@ package models;
 
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.Basic;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity(name = "Inspection")
@@ -13,8 +10,12 @@ public class Inspection {
 	
 	private long id;
 	
+	//Attributes
 	private LocalDate date;
 	private String station;
+	
+	//Associations
+	private Vehicle vehicle;
 	
 	public Inspection(){}
 	public Inspection(LocalDate date, String station){
@@ -49,5 +50,14 @@ public class Inspection {
 	
 	public void setStation(String station) {
 		this.station = station;
+	}
+	
+	@ManyToOne
+	public Vehicle getVehicle() {
+		return vehicle;
+	}
+	
+	public void setVehicle(Vehicle vehicle) {
+		this.vehicle = vehicle;
 	}
 }

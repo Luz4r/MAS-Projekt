@@ -3,6 +3,8 @@ package models;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -11,31 +13,35 @@ import java.util.stream.Stream;
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Instructor extends Person {
 	
-	private Set<InstructorTypeClass> instructorKind = Stream.of(new InstructorTypeClass("Instructor")).collect(Collectors.toSet());
+	//Attributes
+	private Set<InstructorTypeClass> instructorType = Stream.of(new InstructorTypeClass("Instructor")).collect(Collectors.toSet());
 	private double salary;
 	private Set<String> workingHours;
 	
+	//Associations
+	private List<InstructorVehicle> vehicles = new ArrayList<>();
+	private List<TrainingTrip> trips = new ArrayList<>();
+	private List<Exam> exams = new ArrayList<>();
 	
 	public Instructor(){
 	
 	}
-	
 	public Instructor(String firstName, String lastName, String phoneNumber, String eMail, LocalDate birthDate, double salary, Set<String> workingHours, boolean isManager){
 		super(firstName, lastName, phoneNumber, eMail, birthDate);
 		this.salary = salary;
 		this.workingHours = workingHours;
 		if(isManager){
-			instructorKind.add(new InstructorTypeClass("Manager"));
+			instructorType.add(new InstructorTypeClass("Manager"));
 		}
 	}
 	
 	@ElementCollection
 	public Set<InstructorTypeClass> getInstructorType(){
-		return instructorKind;
+		return instructorType;
 	}
 	
 	public void setInstructorType(Set<InstructorTypeClass> instructorKind){
-		this.instructorKind = instructorKind;
+		this.instructorType = instructorKind;
 	}
 	
 	@ElementCollection
@@ -54,5 +60,38 @@ public class Instructor extends Person {
 	
 	public void setSalary(double salary){
 		this.salary = salary;
+	}
+	
+	@OneToMany
+	public List<InstructorVehicle> getVehicles() {
+		return vehicles;
+	}
+	
+	public void setVehicles(List<InstructorVehicle> vehicles) {
+		this.vehicles = vehicles;
+	}
+	
+	public void addVehicle(InstructorVehicle instructorVehicle){
+		if(!getVehicles().contains(instructorVehicle)) {
+			getVehicles().add(instructorVehicle);
+		}
+	}
+	
+	@OneToMany
+	public List<TrainingTrip> getTrips() {
+		return trips;
+	}
+	
+	public void setTrips(List<TrainingTrip> trips) {
+		this.trips = trips;
+	}
+	
+	@OneToMany
+	public List<Exam> getExams() {
+		return exams;
+	}
+	
+	public void setExams(List<Exam> exams) {
+		this.exams = exams;
 	}
 }

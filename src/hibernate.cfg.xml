@@ -51,10 +51,7 @@
         <mapping class="models.Vehicle"/>
         <mapping class="models.Inspection"/>
         <mapping class="models.InstructorVehicle"/>
-
-
-
-
+        <mapping class="models.Payment"/>
 
     </session-factory>
 

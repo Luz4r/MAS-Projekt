@@ -1,9 +1,12 @@
 package models;
 
 import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.ManyToAny;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 enum VehicleState{NotAssigned, Waiting, OnTrip, OnInspection}
 
@@ -12,11 +15,16 @@ public class Vehicle {
 	
 	private long id;
 	
+	//Attributes
 	private String brand;
 	private String registration;
 	private LocalDate production;
 	private LocalDate nextInspection;
 	private VehicleState state;
+	
+	//Associations
+	private List<InstructorVehicle> instructors = new ArrayList<>();
+	private List<Inspection> inspections = new ArrayList<>();
 	
 	public Vehicle(){}
 	public Vehicle(String brand, String registration, LocalDate production, LocalDate nextInspection){
@@ -82,6 +90,30 @@ public class Vehicle {
 	
 	public void setState(VehicleState state) {
 		this.state = state;
+	}
+	
+	@OneToMany
+	public List<InstructorVehicle> getInstructors() {
+		return instructors;
+	}
+	
+	public void setInstructors(List<InstructorVehicle> instructors) {
+		this.instructors = instructors;
+	}
+	
+	public void addInstructor(InstructorVehicle instructorVehicle){
+		if(!getInstructors().contains(instructorVehicle)) {
+			getInstructors().add(instructorVehicle);
+		}
+	}
+	
+	@OneToMany
+	public List<Inspection> getInspections() {
+		return inspections;
+	}
+	
+	public void setInspections(List<Inspection> inspections) {
+		this.inspections = inspections;
 	}
 }
 
