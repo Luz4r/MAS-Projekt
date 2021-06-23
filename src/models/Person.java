@@ -32,7 +32,7 @@ public abstract class Person {
 		return id;
 	}
 	
-	protected void setId(long id){
+	private void setId(long id){
 		this.id = id;
 	}
 	

@@ -9,7 +9,7 @@ import java.util.stream.Stream;
 
 @Entity(name = "Instructor")
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-public class Instructor extends Person{
+public class Instructor extends Person {
 	
 	private Set<InstructorTypeClass> instructorKind = Stream.of(new InstructorTypeClass("Instructor")).collect(Collectors.toSet());
 	private double salary;
