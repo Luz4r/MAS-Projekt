@@ -152,7 +152,7 @@ public abstract class Exam {
 	 */
 	public void addInstructor(Instructor instructor){
 		if(this.instructor != instructor) {
-			removeInstructor(this.instructor); //TODO do this on every 1-* association
+			removeInstructor(this.instructor);
 			this.instructor = instructor;
 			instructor.addExam(this);
 		}

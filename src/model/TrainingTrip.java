@@ -94,8 +94,11 @@ public class TrainingTrip {
 	 * @param instructor the instructor
 	 */
 	public void addInstructor(Instructor instructor){
-		this.instructor = instructor;
-		instructor.addTrip(this);
+		if(this.instructor != instructor) {
+			removeInstructor(this.instructor);
+			this.instructor = instructor;
+			instructor.addTrip(this);
+		}
 	}
 	
 	/**
@@ -147,7 +150,10 @@ public class TrainingTrip {
 	 * @param trainee the trainee
 	 */
 	public void addTrainee(Trainee trainee){
-		this.trainee = trainee;
-		trainee.addTrip(this);
+		if(this.trainee != trainee) {
+			removeTrainee(this.trainee);
+			this.trainee = trainee;
+			trainee.addTrip(this);
+		}
 	}
 }

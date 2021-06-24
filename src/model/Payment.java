@@ -132,7 +132,10 @@ public class Payment {
 	 * @param trainee the trainee
 	 */
 	public void addTrainee(Trainee trainee){
-		this.trainee = trainee;
-		trainee.addPayment(this);
+		if(this.trainee != trainee) {
+			removeTrainee(this.trainee);
+			this.trainee = trainee;
+			trainee.addPayment(this);
+		}
 	}
 }

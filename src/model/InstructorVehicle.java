@@ -119,8 +119,11 @@ public class InstructorVehicle {
 	 * @param instructor the instructor
 	 */
 	public void addInstructor(Instructor instructor){
-		this.instructor = instructor;
-		instructor.addVehicle(this);
+		if(this.instructor != instructor) {
+			removeInstructor(this.instructor);
+			this.instructor = instructor;
+			instructor.addVehicle(this);
+		}
 	}
 	
 	/**
@@ -160,8 +163,11 @@ public class InstructorVehicle {
 	 * @param vehicle the vehicle
 	 */
 	public void addVehicle(Vehicle vehicle){
-		this.vehicle = vehicle;
-		vehicle.addInstructor(this);
+		if(this.vehicle != vehicle) {
+			removeVehicle(this.vehicle);
+			this.vehicle = vehicle;
+			vehicle.addInstructor(this);
+		}
 	}
 	
 	/**

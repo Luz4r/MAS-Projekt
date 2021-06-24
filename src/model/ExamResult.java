@@ -103,8 +103,11 @@ public class ExamResult {
 	 * @param exam the exam
 	 */
 	public void addExam(Exam exam){
-		this.exam = exam;
-		exam.addResult(this);
+		if(this.exam != exam) {
+			removeExam(this.exam);
+			this.exam = exam;
+			exam.addResult(this);
+		}
 	}
 	
 	/**
@@ -156,7 +159,10 @@ public class ExamResult {
 	 * @param trainee the trainee
 	 */
 	public void addTrainee(Trainee trainee){
-		this.trainee = trainee;
-		trainee.addResult(this);
+		if(this.trainee != trainee) {
+			removeTrainee(trainee);
+			this.trainee = trainee;
+			trainee.addResult(this);
+		}
 	}
 }
