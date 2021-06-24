@@ -6,6 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ListView;
+import javafx.stage.Stage;
 import model.Instructor;
 
 import java.io.IOException;
@@ -26,26 +27,22 @@ public class InstructorListController implements Initializable {
 		
 		if(instructors.isEmpty()) return;
 		
-//		instructorList.setCellFactory(param -> new ListCell<Instructor>(){
-//			@Override
-//			protected void updateItem(Instructor inst, boolean isEmpty){
-//				super.updateItem(inst, isEmpty);
-//				if(isEmpty || inst == null || inst.getFirstName() == null){
-//					setText("");
-//				} else{
-//					setText(inst.getFirstName() + " " + inst.getLastName() + "\t\t" + inst.getPhoneNumber() + "\t\t"
-//							+ inst.getEMail() + "\t\t" + inst.getBirthDate() + "\t\t" + inst.getWorkingHours() + "\t\t"
-//							+ inst.getSalary());
-//				}
-//			}
-//		});
-		
 		instructorList.setCellFactory(instructorListView -> new InstructorCell());
 		
 		instructorList.getItems().addAll(instructors);
 		
 		instructorList.getSelectionModel().selectedItemProperty().addListener(
-				(observable, oldValue, newValue) -> currentInstructor = instructorList.getSelectionModel().getSelectedItem()
+				(observable, oldValue, newValue) -> {
+					currentInstructor = instructorList.getSelectionModel().getSelectedItem();
+					try {
+						VehicleListController controller = MainMenu.changeScene(
+								(Stage)instructorList.getScene().getWindow(), "../vehicleList.fxml"
+						);
+						controller.forwardInstructor(currentInstructor);
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
+				}
 		);
 	}
 	

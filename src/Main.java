@@ -24,16 +24,6 @@ public class Main extends Application {
 //
 //		db.save(ins1);
 //		db.save(ins2);
-
-//			// Read from DB
-//			session = sessionFactory.openSession();
-//			session.beginTransaction();
-//			List<Instructor> instructorsFromDb = session.createQuery( "from Instructor" ).list();
-//
-//			for (Instructor instructor:
-//				 instructorsFromDb) {
-//				System.out.println(instructor.getInstructorType());
-//			}
 		
 		//Run GUI window
 		launch(args);
@@ -42,7 +32,7 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		try{
-			Parent root = FXMLLoader.load(getClass().getResource("gui/mainMenu.fxml")); //addVehicle    assignInstructorToCar   instructorList    mainMenu
+			Parent root = FXMLLoader.load(getClass().getResource("gui/mainMenu.fxml"));
 			primaryStage.setScene(new Scene(root, 800, 600));
 			primaryStage.setTitle("Szkoła kształcenia kierowców \"Elka\"");
 			primaryStage.show();

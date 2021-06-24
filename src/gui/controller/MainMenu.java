@@ -23,12 +23,21 @@ public class MainMenu {
 		changeScene(e, "../assignInstructorToCar.fxml");
 	}
 	
-	public static void changeScene(ActionEvent e, String uri) throws IOException {
-		Parent root = FXMLLoader.load(MainMenu.class.getResource(uri));
-		Stage stage = (Stage)((Node)e.getSource()).getScene().getWindow();
+	public static <T> T changeScene(ActionEvent e, String uri) throws IOException {
+		return changeScene((Stage)((Node)e.getSource()).getScene().getWindow(), uri);
+	}
+	
+	public static <T>  T changeScene(Stage stage, String uri) throws IOException {
+		FXMLLoader loader = new FXMLLoader(MainMenu.class.getResource(uri));
+		Parent root = loader.load();
+		
+		T controller = loader.getController();
+		
 		Scene scene = new Scene(root);
 		stage.setScene(scene);
 		stage.show();
+		
+		return controller;
 	}
 	
 	public static void returnToMainMenu(ActionEvent e) throws IOException{

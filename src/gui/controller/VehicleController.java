@@ -27,7 +27,7 @@ public class VehicleController {
 		System.out.println("approve");
 		System.out.println(brandInput.getText());
 		System.out.println(registrationInput.getText());
-		System.out.println(productionInput.getValue());
+		System.out.println(productionInput.getValue());	//TODO change to only input year
 		System.out.println(nextInspectionInput.getValue());
 		
 		Vehicle newVehicle = new Vehicle(brandInput.getText(), registrationInput.getText(), productionInput.getValue(), nextInspectionInput.getValue());
@@ -37,7 +37,7 @@ public class VehicleController {
 		Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
 		alert.setTitle("Przypisz instruktora");
 		alert.setHeaderText("Pomyślnie zarejestrowano pojazd");
-		alert.setContentText("Czy chcesz przypisać pojazd do instruktora?: ");
+		alert.setContentText("Czy chcesz przypisać pojazd do instruktora? ");
 		
 		Optional<ButtonType> action = alert.showAndWait();
 		
