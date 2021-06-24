@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.VehicleController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.VehicleController">
    <children>
       <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="50.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -47,8 +47,8 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="200.0">
                <children>
-                  <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#onCancel" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: red; -fx-border-color: black;" text="Anuluj" />
-                  <Button fx:id="approveButton" mnemonicParsing="false" onAction="#onApprove" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: green; -fx-border-color: black;" text="Zatwierdź" />
+                  <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#onCancel" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: red; -fx-border-color: black; -fx-border-radius: 8px;" text="Anuluj" />
+                  <Button fx:id="approveButton" mnemonicParsing="false" onAction="#onApprove" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: green; -fx-border-color: black; -fx-border-radius: 8px;" text="Zatwierdź" />
                </children>
             </HBox>
          </children>

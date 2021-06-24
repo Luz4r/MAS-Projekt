@@ -26,7 +26,6 @@ public abstract class Exam {
 	/**
 	 * The constant maxScore.
 	 */
-//TODO static attribute
 	public static int maxScore;
 	
 	/**

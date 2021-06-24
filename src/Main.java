@@ -25,7 +25,8 @@ public class Main extends Application {
 	public void start(Stage primaryStage) {
 		try{
 			Parent root = FXMLLoader.load(getClass().getResource("gui/mainMenu.fxml"));
-			primaryStage.setScene(new Scene(root, 800, 600));
+			Scene mainMenu = new Scene(root, 800, 600);
+			primaryStage.setScene(mainMenu);
 			primaryStage.setTitle("Szkoła kształcenia kierowców \"Elka\"");
 			primaryStage.show();
 		} catch(Exception e) {
