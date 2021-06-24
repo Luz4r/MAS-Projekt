@@ -4,18 +4,16 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import model.Instructor;
-
-import java.time.LocalDate;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 
 /**
- *
+ * This is an application for driver education school. It helps managing every vehicle, trainees and instructors that are
+ * registered in this school. Main class where gui and whole program starts.
  */
 public class Main extends Application {
 	/**
+	 * The entry point of application.
+	 *
 	 * @param args arguments from running program
 	 */
 	public static void main(String[] args) {
@@ -23,9 +21,6 @@ public class Main extends Application {
 		launch(args);
 	}
 	
-	/**
-	 * @param primaryStage Initial stage created through launching application
-	 */
 	@Override
 	public void start(Stage primaryStage) {
 		try{
@@ -38,9 +33,6 @@ public class Main extends Application {
 		}
 	}
 	
-	/**
-	 * @throws Exception super.stop() returns Exception
-	 */
 	@Override
 	public void stop() throws Exception {
 		Database.getInstance().close();

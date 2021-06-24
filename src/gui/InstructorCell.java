@@ -8,6 +8,9 @@ import model.Instructor;
 
 import java.io.IOException;
 
+/**
+ * The type Instructor cell. Custom list view cell, when listing instructors.
+ */
 public class InstructorCell extends ListCell<Instructor> {
 	
 	@FXML

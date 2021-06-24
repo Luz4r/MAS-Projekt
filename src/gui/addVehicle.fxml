@@ -12,62 +12,46 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.VehicleController">
    <children>
-      <VBox layoutX="200.0" layoutY="150.0" prefHeight="300.0" prefWidth="400.0">
+      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="50.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <HBox prefHeight="100.0" prefWidth="200.0">
-               <children>
-                  <Label text="Marka" />
-                  <TextField fx:id="brandInput">
-                     <HBox.margin>
-                        <Insets left="80.0" />
-                     </HBox.margin>
-                  </TextField>
-               </children>
+            <Label text="Dodaj nowy pojazd">
+               <font>
+                  <Font size="30.0" />
+               </font>
                <VBox.margin>
-                  <Insets />
+                  <Insets bottom="50.0" />
                </VBox.margin>
-            </HBox>
-            <HBox prefHeight="100.0" prefWidth="200.0">
+            </Label>
+            <HBox alignment="CENTER" prefHeight="200.0" prefWidth="500.0" spacing="20.0">
                <children>
-                  <Label text="Rejestracja" />
-                  <TextField fx:id="registrationInput">
-                     <HBox.margin>
-                        <Insets left="80.0" />
-                     </HBox.margin>
-                  </TextField>
+                  <VBox prefHeight="200.0" prefWidth="200.0" spacing="30.0">
+                     <children>
+                        <Label text="Marka" />
+                        <Label text="Rejestracja" />
+                        <Label text="Rok produkcji" />
+                        <Label text="Data następnego przeglądu" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="200.0" spacing="20.0">
+                     <children>
+                        <TextField fx:id="brandInput" />
+                        <TextField fx:id="registrationInput" />
+                        <TextField fx:id="productionInput" />
+                        <DatePicker fx:id="nextInspectionInput" />
+                     </children>
+                  </VBox>
                </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
             </HBox>
-            <HBox prefHeight="100.0" prefWidth="200.0">
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="200.0">
                <children>
-                  <Label text="Rok produkcji" />
-                  <TextField fx:id="productionInput">
-                     <HBox.margin>
-                        <Insets left="80.0" />
-                     </HBox.margin>
-                  </TextField>
-               </children>
-            </HBox>
-            <HBox prefHeight="100.0" prefWidth="200.0">
-               <children>
-                  <Label text="Data następnego przeglądu">
-                     <HBox.margin>
-                        <Insets />
-                     </HBox.margin></Label>
-                  <DatePicker fx:id="nextInspectionInput">
-                     <HBox.margin>
-                        <Insets left="80.0" />
-                     </HBox.margin>
-                  </DatePicker>
+                  <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#onCancel" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: red; -fx-border-color: black;" text="Anuluj" />
+                  <Button fx:id="approveButton" mnemonicParsing="false" onAction="#onApprove" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: green; -fx-border-color: black;" text="Zatwierdź" />
                </children>
             </HBox>
          </children>
       </VBox>
-      <Label layoutX="273.0" layoutY="53.0" text="Dodaj nowy pojazd">
-         <font>
-            <Font size="30.0" />
-         </font>
-      </Label>
-      <Button fx:id="cancelButton" layoutX="160.0" layoutY="507.0" mnemonicParsing="false" onAction="#onCancel" prefHeight="30.0" prefWidth="80.0" text="Anuluj" />
-      <Button fx:id="approveButton" layoutX="560.0" layoutY="507.0" mnemonicParsing="false" onAction="#onApprove" prefHeight="30.0" prefWidth="80.0" text="Zatwierdź" />
    </children>
 </AnchorPane>

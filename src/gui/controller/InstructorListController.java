@@ -14,6 +14,9 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
+/**
+ * The type Instructor list controller. Controller used in scene for listing users.
+ */
 public class InstructorListController implements Initializable {
 	
 	@FXML
@@ -46,6 +49,12 @@ public class InstructorListController implements Initializable {
 		);
 	}
 	
+	/**
+	 * Return to main menu when pressing cancel button.
+	 *
+	 * @param e the e
+	 * @throws IOException the io exception
+	 */
 	public void onBackToMenu(ActionEvent e) throws IOException {
 		MainMenu.returnToMainMenu(e);
 	}

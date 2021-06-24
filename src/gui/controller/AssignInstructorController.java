@@ -12,6 +12,9 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * The type Assign instructor controller. Controller used in scene where user can assign instructor to car.
+ */
 public class AssignInstructorController implements Initializable {
 	
 	@FXML
@@ -19,6 +22,11 @@ public class AssignInstructorController implements Initializable {
 	@FXML
 	private ChoiceBox<Vehicle> vehicleChoice;
 	
+	/**
+	 * On clicking on button "approve", adds every needed association and saves it to database.
+	 *
+	 * @param e the event
+	 */
 	public void onApprove(ActionEvent e){
 		Instructor selectedInstructor = instructorChoice.getValue();
 		Vehicle selectedVehicle = vehicleChoice.getValue();
@@ -32,6 +40,12 @@ public class AssignInstructorController implements Initializable {
 		}
 	}
 	
+	/**
+	 * Return to main menu when pressing cancel button.
+	 *
+	 * @param e the event
+	 * @throws IOException the io exception
+	 */
 	public void onCancel(ActionEvent e) throws IOException {
 		MainMenu.returnToMainMenu(e);
 	}

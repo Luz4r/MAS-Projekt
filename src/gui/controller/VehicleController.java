@@ -14,6 +14,9 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.function.UnaryOperator;
 
+/**
+ * The type Vehicle controller. Used in scene of adding new vehicle.
+ */
 public class VehicleController implements Initializable {
 	
 	@FXML
@@ -25,6 +28,11 @@ public class VehicleController implements Initializable {
 	@FXML
 	private DatePicker nextInspectionInput;
 	
+	/**
+	 * On approve. When pressing the button to approve adding vehicle.
+	 *
+	 * @param e the event
+	 */
 	public void onApprove(ActionEvent e){
 		Vehicle newVehicle = new Vehicle(brandInput.getText(), registrationInput.getText(),
 				LocalDate.of(Integer.parseInt(productionInput.getText()), 1, 1),
@@ -52,6 +60,12 @@ public class VehicleController implements Initializable {
 		}
 	}
 	
+	/**
+	 * On cancel. When pressing the button to cancel adding new vehicle. Returns to main menu scene.
+	 *
+	 * @param e the e
+	 * @throws IOException the io exception
+	 */
 	public void onCancel(ActionEvent e) throws IOException {
 		MainMenu.returnToMainMenu(e);
 	}
