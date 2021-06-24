@@ -1,6 +1,8 @@
 package model;
 
 
+import database.Database;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -129,6 +131,18 @@ public class Instructor extends Person {
 			getExams().remove(exam);
 			exam.removeInstructor(this);
 		}
+	}
+	
+	public void assignToVehicle(Vehicle selectedVehicle){
+		Database db = Database.getInstance();
+		
+		InstructorVehicle insVeh = new InstructorVehicle(LocalDate.now());
+		insVeh.addInstructor(this);
+		insVeh.addVehicle(selectedVehicle);
+		
+		db.save(insVeh);
+		db.save(this);
+		db.save(selectedVehicle);
 	}
 	
 	@Override

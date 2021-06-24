@@ -3,34 +3,32 @@ package gui.controller;
 import database.Database;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextField;
+import javafx.fxml.Initializable;
+import javafx.scene.control.*;
 import model.Vehicle;
 
 import java.io.IOException;
+import java.net.URL;
+import java.time.LocalDate;
 import java.util.Optional;
+import java.util.ResourceBundle;
+import java.util.function.UnaryOperator;
 
-public class VehicleController {
+public class VehicleController implements Initializable {
 	
 	@FXML
 	private TextField brandInput;
 	@FXML
 	private TextField registrationInput;
 	@FXML
-	private DatePicker productionInput;
+	private TextField productionInput;
 	@FXML
 	private DatePicker nextInspectionInput;
 	
 	public void onApprove(ActionEvent e){
-		System.out.println("approve");
-		System.out.println(brandInput.getText());
-		System.out.println(registrationInput.getText());
-		System.out.println(productionInput.getValue());	//TODO change to only input year
-		System.out.println(nextInspectionInput.getValue());
-		
-		Vehicle newVehicle = new Vehicle(brandInput.getText(), registrationInput.getText(), productionInput.getValue(), nextInspectionInput.getValue());
+		Vehicle newVehicle = new Vehicle(brandInput.getText(), registrationInput.getText(),
+				LocalDate.of(Integer.parseInt(productionInput.getText()), 1, 1),
+				nextInspectionInput.getValue());
 		
 		Database.getInstance().save(newVehicle);
 		
@@ -56,5 +54,20 @@ public class VehicleController {
 	
 	public void onCancel(ActionEvent e) throws IOException {
 		MainMenu.returnToMainMenu(e);
+	}
+	
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		UnaryOperator<TextFormatter.Change> filter = change -> {
+			String text = change.getText();
+			
+			if (text.matches("\\d*")) {
+				return change;
+			}
+			
+			return null;
+		};
+		TextFormatter<String> textFormatter = new TextFormatter<String>(filter);
+		productionInput.setTextFormatter(textFormatter);
 	}
 }

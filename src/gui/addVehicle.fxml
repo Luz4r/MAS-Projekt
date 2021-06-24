@@ -40,11 +40,11 @@
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
                   <Label text="Rok produkcji" />
-                  <DatePicker fx:id="productionInput">
+                  <TextField fx:id="productionInput">
                      <HBox.margin>
                         <Insets left="80.0" />
                      </HBox.margin>
-                  </DatePicker>
+                  </TextField>
                </children>
             </HBox>
             <HBox prefHeight="100.0" prefWidth="200.0">
