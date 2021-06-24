@@ -34,6 +34,12 @@ public class AssignInstructorController implements Initializable {
 		db.save(insVeh);	//TODO implement and use method from instructor
 		db.save(selectedInstructor);
 		db.save(selectedVehicle);
+		
+		try {
+			MainMenu.returnToMainMenu(e);
+		} catch(IOException ex){
+			ex.printStackTrace();
+		}
 	}
 	
 	public void onCancel(ActionEvent e) throws IOException {
