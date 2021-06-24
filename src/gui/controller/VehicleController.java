@@ -8,6 +8,8 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import model.Vehicle;
 
+import java.io.IOException;
+
 public class VehicleController {
 	
 	@FXML
@@ -31,9 +33,7 @@ public class VehicleController {
 		Database.getInstance().save(newVehicle);
 	}
 	
-	public void onCancel(ActionEvent e){
-		System.out.println("cancel");
-		
-		((Stage)brandInput.getScene().getWindow()).close(); // TODO return to scene with instructors
+	public void onCancel(ActionEvent e) throws IOException {
+		MainMenu.returnToMainMenu(e);
 	}
 }

@@ -9,6 +9,7 @@ import model.Instructor;
 import model.InstructorVehicle;
 import model.Vehicle;
 
+import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
@@ -30,13 +31,13 @@ public class AssignInstructorController implements Initializable {
 		insVeh.addInstructor(selectedInstructor);
 		insVeh.addVehicle(selectedVehicle);
 		
-		db.save(insVeh);
+		db.save(insVeh);	//TODO implement and use method from instructor
 		db.save(selectedInstructor);
 		db.save(selectedVehicle);
 	}
 	
-	public void onCancel(ActionEvent e){
-		System.out.println("cancel");
+	public void onCancel(ActionEvent e) throws IOException {
+		MainMenu.returnToMainMenu(e);
 	}
 	
 	@Override

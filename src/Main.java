@@ -42,9 +42,9 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		try{
-			Parent root = FXMLLoader.load(getClass().getResource("gui/instructorList.fxml")); //addVehicle    assignInstructorToCar   instructorList
+			Parent root = FXMLLoader.load(getClass().getResource("gui/mainMenu.fxml")); //addVehicle    assignInstructorToCar   instructorList    mainMenu
 			primaryStage.setScene(new Scene(root, 800, 600));
-			primaryStage.setTitle("Elka");
+			primaryStage.setTitle("Szkoła kształcenia kierowców \"Elka\"");
 			primaryStage.show();
 		} catch(Exception e) {
 			e.printStackTrace();

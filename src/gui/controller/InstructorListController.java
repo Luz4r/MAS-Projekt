@@ -2,13 +2,13 @@ package gui.controller;
 
 import database.Database;
 import gui.InstructorCell;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import model.Instructor;
 
-import java.awt.event.ActionEvent;
+import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -49,7 +49,7 @@ public class InstructorListController implements Initializable {
 		);
 	}
 	
-	public void onBackToMenu(javafx.event.ActionEvent e) {
-		System.out.println("Back to menu");
+	public void onBackToMenu(ActionEvent e) throws IOException {
+		MainMenu.returnToMainMenu(e);
 	}
 }
